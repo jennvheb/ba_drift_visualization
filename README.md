@@ -14,8 +14,7 @@ $ pip install -r requirements.txt
 $ python app.py
 ```
 
-parameters such as window size, max group size can be changed in preprocessed.py
-critical drift threshold in app_background.py
+parameters such as window size, max group size can be changed in preprocessed.py and the critical drift threshold in app_background.py
 
 
 # credits
