@@ -1,0 +1,3 @@
+#!/Users/jenny/ba_drift_visualization/.ba_drftvz/bin/python3
+from numba.pycc import main
+main()

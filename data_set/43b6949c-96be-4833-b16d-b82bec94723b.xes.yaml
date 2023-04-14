@@ -1,0 +1,2444 @@
+---
+log:
+  extension:
+    time: http://www.xes-standard.org/time.xesext
+    concept: http://www.xes-standard.org/concept.xesext
+    organisational: http://www.xes-standard.org/org.xesext
+    lifecycle: http://www.xes-standard.org/lifecycle.xesext
+    cpee: http://cpee.org/cpee.xesext
+  global:
+    trace:
+      concept:name: __INVALID__
+      cpee:name: __INVALID__
+    event:
+      concept:instance: -1
+      concept:name: __INVALID__
+      concept:endpoint: ''
+      id:id: ''
+      cpee:uuid: ''
+      lifecycle:transition: complete
+      cpee:lifecycle:transition: activity/calling
+      time:timestamp: ''
+  classifier:
+    Data: data_send data_received data_changed data_values
+    Data_Received: data_receiver
+    Data_Send: data_send
+    Data_Changed: data_changer
+    Data_Values: data_values
+  trace:
+    concept:name: 1279
+    cpee:name: Machining V2
+    cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+---
+event:
+  concept:instance: 1279
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: dataelements/change
+  data:
+    data_changer:
+    - queue
+    data_values:
+      queue: ''
+  time:timestamp: '2021-11-04T16:48:00.423+01:00'
+---
+event:
+  concept:instance: 1279
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: endpoints/change
+  data:
+    data_changer:
+    - queue
+    data_values:
+      queue: https://centurio.work/data/dpnorth/queue/
+  time:timestamp: '2021-11-04T16:48:00.431+01:00'
+---
+event:
+  concept:instance: 1279
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: attributes/change
+  data:
+    data_changer:
+    - info
+    - modeltype
+    - theme
+    - customer
+    - status
+    - artefacts
+    - sensors
+    - creator
+    - author
+    - design_stage
+    - design_dir
+    data_values:
+      info: Machining V2
+      modeltype: CPEE
+      theme: extended
+      customer: pilotfabrik
+      status: development
+      artefacts: '[ { "group": "Machines", "name": "MaxxMill500" } ]'
+      sensors: '[ { "name": "MaxxMill500 Progress", "value": "!data.steps", "visualizer_url":
+        "https://centurio.work/visualizers/progress.js", "visualizer_params": {} }
+        ]'
+      creator: Juergen Mangler
+      author: Juergen Mangler
+      design_stage: development
+      design_dir: Keyence Measurement from Pallet.dir
+  time:timestamp: '2021-11-04T16:48:00.441+01:00'
+---
+event:
+  concept:instance: 1279
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: description/change
+  cpee:description: |
+    <?xml version="1.0"?>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <manipulate id="a2" label="Correct  Queue">endpoints.queue = File.join(endpoints.queue,data.queue,'push')</manipulate>
+      <call id="a1" endpoint="queue">
+        <parameters>
+          <label>Fetch</label>
+          <method>:get</method>
+          <arguments/>
+          <stream>
+            <sensors/>
+            <aggregators/>
+            <costs/>
+          </stream>
+        </parameters>
+        <code>
+          <prepare/>
+          <finalize output="result"/>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_timing/>
+          <_notes>
+            <_notes_general/>
+            <_notes_output/>
+            <_attachments/>
+          </_notes>
+        </annotations>
+      </call>
+    </description>
+  time:timestamp: '2021-11-04T16:48:00.453+01:00'
+---
+event:
+  concept:instance: 1279
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: dataelements/change
+  data:
+    data_changer:
+    - queue
+    - qr
+    data_values:
+      queue: keyence/1636040880.1519234
+      qr: "*268MFA466*TZHZE 024"
+  time:timestamp: '2021-11-04T16:48:00.603+01:00'
+---
+event:
+  concept:instance: 1279
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: state/change
+  cpee:state: running
+  time:timestamp: '2021-11-04T16:48:01.660+01:00'
+---
+event:
+  concept:instance: 1279
+  concept:name: Correct  Queue
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 93799dcb78744bbfe984cddd7095524a
+  cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: endpoints/change
+  data:
+    data_changer:
+    - queue
+    data_values:
+      queue: https://centurio.work/data/dpnorth/queue/keyence/1636040880.1519234/push
+  time:timestamp: '2021-11-04T16:48:01.673+01:00'
+---
+event:
+  concept:instance: 1279
+  concept:name: Correct  Queue
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 93799dcb78744bbfe984cddd7095524a
+  cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T16:48:01.681+01:00'
+---
+event:
+  concept:instance: 1279
+  concept:name: Fetch
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 1befbd21ef67e0bc3a42beead5b390b8
+  cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  time:timestamp: '2021-11-04T16:48:01.693+01:00'
+---
+event:
+  concept:instance: 1279
+  concept:name: Fetch
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 1befbd21ef67e0bc3a42beead5b390b8
+  cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: message
+      mimetype: application/json
+      data:
+      - ID: keyence/state
+        source: keyence
+        name: state
+        description: ''
+        path: state
+        value: active
+        timestamp: '2021-11-04T16:48:00.145+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.53
+        timestamp: '2021-11-04T16:48:00.148+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.51
+        timestamp: '2021-11-04T16:48:00.152+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.47
+        timestamp: '2021-11-04T16:48:00.155+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.44
+        timestamp: '2021-11-04T16:48:00.159+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.41
+        timestamp: '2021-11-04T16:48:00.162+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.37
+        timestamp: '2021-11-04T16:48:00.165+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.34
+        timestamp: '2021-11-04T16:48:00.168+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.31
+        timestamp: '2021-11-04T16:48:00.172+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.28
+        timestamp: '2021-11-04T16:48:00.175+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.25
+        timestamp: '2021-11-04T16:48:00.178+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.21
+        timestamp: '2021-11-04T16:48:00.182+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.18
+        timestamp: '2021-11-04T16:48:00.185+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.15
+        timestamp: '2021-11-04T16:48:00.188+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.12
+        timestamp: '2021-11-04T16:48:00.192+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.09
+        timestamp: '2021-11-04T16:48:00.195+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.06
+        timestamp: '2021-11-04T16:48:00.198+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 67.02
+        timestamp: '2021-11-04T16:48:00.202+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 66.99
+        timestamp: '2021-11-04T16:48:00.206+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 66.9
+        timestamp: '2021-11-04T16:48:00.210+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 66.7
+        timestamp: '2021-11-04T16:48:00.213+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 66.27
+        timestamp: '2021-11-04T16:48:00.217+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 65.53
+        timestamp: '2021-11-04T16:48:00.221+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 64.43
+        timestamp: '2021-11-04T16:48:00.224+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 63.27
+        timestamp: '2021-11-04T16:48:00.228+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 62.16
+        timestamp: '2021-11-04T16:48:00.232+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 61.05
+        timestamp: '2021-11-04T16:48:00.235+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 59.89
+        timestamp: '2021-11-04T16:48:00.239+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 58.67
+        timestamp: '2021-11-04T16:48:00.243+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 57.49
+        timestamp: '2021-11-04T16:48:00.247+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 56.25
+        timestamp: '2021-11-04T16:48:00.251+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 55.07
+        timestamp: '2021-11-04T16:48:00.255+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 53.91
+        timestamp: '2021-11-04T16:48:00.259+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 52.66
+        timestamp: '2021-11-04T16:48:00.263+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 51.48
+        timestamp: '2021-11-04T16:48:00.267+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 50.26
+        timestamp: '2021-11-04T16:48:00.271+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 49.06
+        timestamp: '2021-11-04T16:48:00.275+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 47.88
+        timestamp: '2021-11-04T16:48:00.279+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 46.72
+        timestamp: '2021-11-04T16:48:00.283+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 45.5
+        timestamp: '2021-11-04T16:48:00.287+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 44.25
+        timestamp: '2021-11-04T16:48:00.291+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 43.09
+        timestamp: '2021-11-04T16:48:00.295+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 41.92
+        timestamp: '2021-11-04T16:48:00.299+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 40.67
+        timestamp: '2021-11-04T16:48:00.303+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 39.4
+        timestamp: '2021-11-04T16:48:00.308+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 38.18
+        timestamp: '2021-11-04T16:48:00.312+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 37.02
+        timestamp: '2021-11-04T16:48:00.316+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 35.84
+        timestamp: '2021-11-04T16:48:00.320+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 34.58
+        timestamp: '2021-11-04T16:48:00.324+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 33.42
+        timestamp: '2021-11-04T16:48:00.328+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 32.17
+        timestamp: '2021-11-04T16:48:00.332+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 30.97
+        timestamp: '2021-11-04T16:48:00.336+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 29.77
+        timestamp: '2021-11-04T16:48:00.340+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.96
+        timestamp: '2021-11-04T16:48:00.344+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.48
+        timestamp: '2021-11-04T16:48:00.348+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.4
+        timestamp: '2021-11-04T16:48:00.352+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.41
+        timestamp: '2021-11-04T16:48:00.478+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.42
+        timestamp: '2021-11-04T16:48:00.512+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.43
+        timestamp: '2021-11-04T16:48:00.540+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.44
+        timestamp: '2021-11-04T16:48:00.562+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.45
+        timestamp: '2021-11-04T16:48:00.585+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.46
+        timestamp: '2021-11-04T16:48:00.605+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.47
+        timestamp: '2021-11-04T16:48:00.625+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.48
+        timestamp: '2021-11-04T16:48:00.645+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.49
+        timestamp: '2021-11-04T16:48:00.665+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.5
+        timestamp: '2021-11-04T16:48:00.685+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.51
+        timestamp: '2021-11-04T16:48:00.705+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.52
+        timestamp: '2021-11-04T16:48:00.728+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.53
+        timestamp: '2021-11-04T16:48:00.747+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 28.54
+        timestamp: '2021-11-04T16:48:00.770+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 999.99
+        timestamp: '2021-11-04T16:48:00.782+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.36
+        timestamp: '2021-11-04T16:48:01.090+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.37
+        timestamp: '2021-11-04T16:48:01.094+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.38
+        timestamp: '2021-11-04T16:48:01.103+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.39
+        timestamp: '2021-11-04T16:48:01.109+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.4
+        timestamp: '2021-11-04T16:48:01.115+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.41
+        timestamp: '2021-11-04T16:48:01.123+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.42
+        timestamp: '2021-11-04T16:48:01.129+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.43
+        timestamp: '2021-11-04T16:48:01.139+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.44
+        timestamp: '2021-11-04T16:48:01.145+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.45
+        timestamp: '2021-11-04T16:48:01.152+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.46
+        timestamp: '2021-11-04T16:48:01.159+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.47
+        timestamp: '2021-11-04T16:48:01.168+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.48
+        timestamp: '2021-11-04T16:48:01.175+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.49
+        timestamp: '2021-11-04T16:48:01.181+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.5
+        timestamp: '2021-11-04T16:48:01.188+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.51
+        timestamp: '2021-11-04T16:48:01.197+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.52
+        timestamp: '2021-11-04T16:48:01.204+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.53
+        timestamp: '2021-11-04T16:48:01.210+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.54
+        timestamp: '2021-11-04T16:48:01.217+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.55
+        timestamp: '2021-11-04T16:48:01.224+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.56
+        timestamp: '2021-11-04T16:48:01.230+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.57
+        timestamp: '2021-11-04T16:48:01.237+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.58
+        timestamp: '2021-11-04T16:48:01.244+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.59
+        timestamp: '2021-11-04T16:48:01.248+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.6
+        timestamp: '2021-11-04T16:48:01.254+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.61
+        timestamp: '2021-11-04T16:48:01.261+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.62
+        timestamp: '2021-11-04T16:48:01.268+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.63
+        timestamp: '2021-11-04T16:48:01.272+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.64
+        timestamp: '2021-11-04T16:48:01.279+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.65
+        timestamp: '2021-11-04T16:48:01.283+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.66
+        timestamp: '2021-11-04T16:48:01.289+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.67
+        timestamp: '2021-11-04T16:48:01.293+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.68
+        timestamp: '2021-11-04T16:48:01.300+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.69
+        timestamp: '2021-11-04T16:48:01.304+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.7
+        timestamp: '2021-11-04T16:48:01.311+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.71
+        timestamp: '2021-11-04T16:48:01.315+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.72
+        timestamp: '2021-11-04T16:48:01.321+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.73
+        timestamp: '2021-11-04T16:48:01.325+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.74
+        timestamp: '2021-11-04T16:48:01.332+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.75
+        timestamp: '2021-11-04T16:48:01.336+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.76
+        timestamp: '2021-11-04T16:48:01.343+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.77
+        timestamp: '2021-11-04T16:48:01.347+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.78
+        timestamp: '2021-11-04T16:48:01.354+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.79
+        timestamp: '2021-11-04T16:48:01.358+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.8
+        timestamp: '2021-11-04T16:48:01.365+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.81
+        timestamp: '2021-11-04T16:48:01.369+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.82
+        timestamp: '2021-11-04T16:48:01.375+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.83
+        timestamp: '2021-11-04T16:48:01.379+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.84
+        timestamp: '2021-11-04T16:48:01.386+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.85
+        timestamp: '2021-11-04T16:48:01.390+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.86
+        timestamp: '2021-11-04T16:48:01.397+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.87
+        timestamp: '2021-11-04T16:48:01.403+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.88
+        timestamp: '2021-11-04T16:48:01.407+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.89
+        timestamp: '2021-11-04T16:48:01.414+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.9
+        timestamp: '2021-11-04T16:48:01.421+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.91
+        timestamp: '2021-11-04T16:48:01.425+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.92
+        timestamp: '2021-11-04T16:48:01.431+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.93
+        timestamp: '2021-11-04T16:48:01.438+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.94
+        timestamp: '2021-11-04T16:48:01.445+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.95
+        timestamp: '2021-11-04T16:48:01.451+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.96
+        timestamp: '2021-11-04T16:48:01.458+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.97
+        timestamp: '2021-11-04T16:48:01.467+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.98
+        timestamp: '2021-11-04T16:48:01.474+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 18.99
+        timestamp: '2021-11-04T16:48:01.481+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.0
+        timestamp: '2021-11-04T16:48:01.490+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.01
+        timestamp: '2021-11-04T16:48:01.497+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.02
+        timestamp: '2021-11-04T16:48:01.506+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.03
+        timestamp: '2021-11-04T16:48:01.516+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.04
+        timestamp: '2021-11-04T16:48:01.525+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.05
+        timestamp: '2021-11-04T16:48:01.534+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.06
+        timestamp: '2021-11-04T16:48:01.543+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.07
+        timestamp: '2021-11-04T16:48:01.552+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.08
+        timestamp: '2021-11-04T16:48:01.564+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.09
+        timestamp: '2021-11-04T16:48:01.576+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.1
+        timestamp: '2021-11-04T16:48:01.588+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.11
+        timestamp: '2021-11-04T16:48:01.600+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.12
+        timestamp: '2021-11-04T16:48:01.615+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.13
+        timestamp: '2021-11-04T16:48:01.632+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.14
+        timestamp: '2021-11-04T16:48:01.652+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.15
+        timestamp: '2021-11-04T16:48:01.674+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.16
+        timestamp: '2021-11-04T16:48:01.705+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.17
+        timestamp: '2021-11-04T16:48:01.786+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.16
+        timestamp: '2021-11-04T16:48:01.825+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.15
+        timestamp: '2021-11-04T16:48:01.919+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.14
+        timestamp: '2021-11-04T16:48:01.969+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.13
+        timestamp: '2021-11-04T16:48:02.013+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.12
+        timestamp: '2021-11-04T16:48:02.068+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 999.99
+        timestamp: '2021-11-04T16:48:02.075+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.22
+        timestamp: '2021-11-04T16:48:02.344+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.21
+        timestamp: '2021-11-04T16:48:02.377+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.2
+        timestamp: '2021-11-04T16:48:02.441+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.19
+        timestamp: '2021-11-04T16:48:02.486+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.18
+        timestamp: '2021-11-04T16:48:02.532+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.17
+        timestamp: '2021-11-04T16:48:02.598+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.16
+        timestamp: '2021-11-04T16:48:02.914+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.15
+        timestamp: '2021-11-04T16:48:03.119+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.16
+        timestamp: '2021-11-04T16:48:03.426+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.17
+        timestamp: '2021-11-04T16:48:03.470+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.18
+        timestamp: '2021-11-04T16:48:03.506+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.19
+        timestamp: '2021-11-04T16:48:03.533+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.2
+        timestamp: '2021-11-04T16:48:03.563+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.21
+        timestamp: '2021-11-04T16:48:03.594+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 15.22
+        timestamp: '2021-11-04T16:48:03.632+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 999.99
+        timestamp: '2021-11-04T16:48:03.643+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.12
+        timestamp: '2021-11-04T16:48:03.923+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.13
+        timestamp: '2021-11-04T16:48:03.983+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.14
+        timestamp: '2021-11-04T16:48:04.029+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.15
+        timestamp: '2021-11-04T16:48:04.067+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.16
+        timestamp: '2021-11-04T16:48:04.111+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.17
+        timestamp: '2021-11-04T16:48:04.193+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.16
+        timestamp: '2021-11-04T16:48:04.475+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.15
+        timestamp: '2021-11-04T16:48:04.570+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.14
+        timestamp: '2021-11-04T16:48:04.626+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 19.13
+        timestamp: '2021-11-04T16:48:04.678+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 999.99
+        timestamp: '2021-11-04T16:48:04.729+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.28
+        timestamp: '2021-11-04T16:48:05.044+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.27
+        timestamp: '2021-11-04T16:48:05.048+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.26
+        timestamp: '2021-11-04T16:48:05.070+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.25
+        timestamp: '2021-11-04T16:48:05.090+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.24
+        timestamp: '2021-11-04T16:48:05.112+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.23
+        timestamp: '2021-11-04T16:48:05.132+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.22
+        timestamp: '2021-11-04T16:48:05.149+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.21
+        timestamp: '2021-11-04T16:48:05.163+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.2
+        timestamp: '2021-11-04T16:48:05.180+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.19
+        timestamp: '2021-11-04T16:48:05.195+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.18
+        timestamp: '2021-11-04T16:48:05.209+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.17
+        timestamp: '2021-11-04T16:48:05.226+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.16
+        timestamp: '2021-11-04T16:48:05.241+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.15
+        timestamp: '2021-11-04T16:48:05.258+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.14
+        timestamp: '2021-11-04T16:48:05.274+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.13
+        timestamp: '2021-11-04T16:48:05.294+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.12
+        timestamp: '2021-11-04T16:48:05.316+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.11
+        timestamp: '2021-11-04T16:48:05.344+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.1
+        timestamp: '2021-11-04T16:48:05.396+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.11
+        timestamp: '2021-11-04T16:48:05.461+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.12
+        timestamp: '2021-11-04T16:48:05.509+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.13
+        timestamp: '2021-11-04T16:48:05.536+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.14
+        timestamp: '2021-11-04T16:48:05.556+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.15
+        timestamp: '2021-11-04T16:48:05.573+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.16
+        timestamp: '2021-11-04T16:48:05.588+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.17
+        timestamp: '2021-11-04T16:48:05.603+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.18
+        timestamp: '2021-11-04T16:48:05.614+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.19
+        timestamp: '2021-11-04T16:48:05.629+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.2
+        timestamp: '2021-11-04T16:48:05.640+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.21
+        timestamp: '2021-11-04T16:48:05.649+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.22
+        timestamp: '2021-11-04T16:48:05.661+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.23
+        timestamp: '2021-11-04T16:48:05.670+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.24
+        timestamp: '2021-11-04T16:48:05.681+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.25
+        timestamp: '2021-11-04T16:48:05.690+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.26
+        timestamp: '2021-11-04T16:48:05.699+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.27
+        timestamp: '2021-11-04T16:48:05.711+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.28
+        timestamp: '2021-11-04T16:48:05.720+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.29
+        timestamp: '2021-11-04T16:48:05.729+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.3
+        timestamp: '2021-11-04T16:48:05.738+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.31
+        timestamp: '2021-11-04T16:48:05.747+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.32
+        timestamp: '2021-11-04T16:48:05.759+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.33
+        timestamp: '2021-11-04T16:48:05.767+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.34
+        timestamp: '2021-11-04T16:48:05.776+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.35
+        timestamp: '2021-11-04T16:48:05.788+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.36
+        timestamp: '2021-11-04T16:48:05.797+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.37
+        timestamp: '2021-11-04T16:48:05.809+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.38
+        timestamp: '2021-11-04T16:48:05.821+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.39
+        timestamp: '2021-11-04T16:48:05.832+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.4
+        timestamp: '2021-11-04T16:48:05.844+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.41
+        timestamp: '2021-11-04T16:48:05.856+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.42
+        timestamp: '2021-11-04T16:48:05.870+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.43
+        timestamp: '2021-11-04T16:48:05.882+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.44
+        timestamp: '2021-11-04T16:48:05.896+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.45
+        timestamp: '2021-11-04T16:48:05.910+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.46
+        timestamp: '2021-11-04T16:48:05.927+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.47
+        timestamp: '2021-11-04T16:48:05.944+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.48
+        timestamp: '2021-11-04T16:48:05.961+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.49
+        timestamp: '2021-11-04T16:48:05.981+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.5
+        timestamp: '2021-11-04T16:48:06.006+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.51
+        timestamp: '2021-11-04T16:48:06.031+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.52
+        timestamp: '2021-11-04T16:48:06.073+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.53
+        timestamp: '2021-11-04T16:48:06.191+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.52
+        timestamp: '2021-11-04T16:48:10.931+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.51
+        timestamp: '2021-11-04T16:48:11.045+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.5
+        timestamp: '2021-11-04T16:48:11.124+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.49
+        timestamp: '2021-11-04T16:48:11.187+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.48
+        timestamp: '2021-11-04T16:48:11.242+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.47
+        timestamp: '2021-11-04T16:48:11.295+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.46
+        timestamp: '2021-11-04T16:48:11.342+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.45
+        timestamp: '2021-11-04T16:48:11.386+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.44
+        timestamp: '2021-11-04T16:48:11.430+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.43
+        timestamp: '2021-11-04T16:48:11.474+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.42
+        timestamp: '2021-11-04T16:48:11.519+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.41
+        timestamp: '2021-11-04T16:48:11.566+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.4
+        timestamp: '2021-11-04T16:48:11.613+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.39
+        timestamp: '2021-11-04T16:48:11.660+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.38
+        timestamp: '2021-11-04T16:48:11.707+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.37
+        timestamp: '2021-11-04T16:48:11.754+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.36
+        timestamp: '2021-11-04T16:48:11.803+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.35
+        timestamp: '2021-11-04T16:48:11.853+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.34
+        timestamp: '2021-11-04T16:48:11.902+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.33
+        timestamp: '2021-11-04T16:48:11.952+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.32
+        timestamp: '2021-11-04T16:48:11.999+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.31
+        timestamp: '2021-11-04T16:48:12.046+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.3
+        timestamp: '2021-11-04T16:48:12.098+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.29
+        timestamp: '2021-11-04T16:48:12.151+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 4.28
+        timestamp: '2021-11-04T16:48:12.219+01:00'
+        meta: {}
+      - ID: keyence/measurement
+        source: keyence
+        name: measurement
+        description: ''
+        path: measurement
+        value: 999.99
+        timestamp: '2021-11-04T16:48:12.314+01:00'
+        meta: {}
+  time:timestamp: '2021-11-04T16:48:15.059+01:00'
+---
+event:
+  concept:instance: 1279
+  concept:name: Fetch
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 1befbd21ef67e0bc3a42beead5b390b8
+  cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: message
+      mimetype: application/json
+      data: {}
+  time:timestamp: '2021-11-04T16:48:15.121+01:00'
+---
+event:
+  concept:instance: 1279
+  concept:name: Fetch
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 1befbd21ef67e0bc3a42beead5b390b8
+  cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T16:48:15.131+01:00'
+---
+event:
+  concept:instance: 1279
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 43b6949c-96be-4833-b16d-b82bec94723b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: state/change
+  cpee:state: finished
+  time:timestamp: '2021-11-04T16:48:15.342+01:00'

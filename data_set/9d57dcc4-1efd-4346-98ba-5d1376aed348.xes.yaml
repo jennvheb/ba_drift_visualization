@@ -1,0 +1,386 @@
+---
+log:
+  extension:
+    time: http://www.xes-standard.org/time.xesext
+    concept: http://www.xes-standard.org/concept.xesext
+    organisational: http://www.xes-standard.org/org.xesext
+    lifecycle: http://www.xes-standard.org/lifecycle.xesext
+    cpee: http://cpee.org/cpee.xesext
+  global:
+    trace:
+      concept:name: __INVALID__
+      cpee:name: __INVALID__
+    event:
+      concept:instance: -1
+      concept:name: __INVALID__
+      concept:endpoint: ''
+      id:id: ''
+      cpee:uuid: ''
+      lifecycle:transition: complete
+      cpee:lifecycle:transition: activity/calling
+      time:timestamp: ''
+  classifier:
+    Data: data_send data_received data_changed data_values
+    Data_Received: data_receiver
+    Data_Send: data_send
+    Data_Changed: data_changer
+    Data_Values: data_values
+  trace:
+    concept:name: 1219
+    cpee:name: Measurement Single
+    cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+---
+event:
+  concept:instance: 1219
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: dataelements/change
+  data:
+    data_changer:
+    - qr
+    data_values:
+      qr: "*269MFA466*TZHZE 900"
+  time:timestamp: '2021-11-04T16:33:11.890+01:00'
+---
+event:
+  concept:instance: 1219
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: endpoints/change
+  data:
+    data_changer:
+    - start_url
+    - ipc_send
+    data_values:
+      start_url: https://centurio.work/flow/start/url/
+      ipc_send: https://centurio.work/ing/correlators/message/send/
+  time:timestamp: '2021-11-04T16:33:11.900+01:00'
+---
+event:
+  concept:instance: 1219
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: attributes/change
+  data:
+    data_changer:
+    - info
+    - modeltype
+    - theme
+    - customer
+    - status
+    - artefacts
+    - creator
+    - author
+    - design_stage
+    - design_dir
+    data_values:
+      info: Measurement Single
+      modeltype: CPEE
+      theme: default
+      customer: pilotfabrik
+      status: development
+      artefacts: '[ { "group": "Products", "name": "!attributes.info" } ]'
+      creator: Juergen Mangler
+      author: Juergen Mangler
+      design_stage: development
+      design_dir: Keyence Measurement from Pallet.dir
+  time:timestamp: '2021-11-04T16:33:11.916+01:00'
+---
+event:
+  concept:instance: 1219
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: description/change
+  cpee:description: |
+    <?xml version="1.0"?>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <call id="a2" endpoint="start_url">
+        <parameters>
+          <label>Measure with Keyence</label>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://centurio.work/design/server/Keyence%20Measurement%20from%20Pallet.dir/Production%20Vx.xml</url>
+            <init>
+              <machine>keyence</machine>
+              <program>gfrast1</program>
+              <program_path>program</program_path>
+              <trigger>state</trigger>
+              <trigger_start>active</trigger_start>
+              <trigger_pause>notpossible</trigger_pause>
+              <trigger_end>inactive</trigger_end>
+              <event_batch>333</event_batch>
+              <label>Natty Keyence Measuring</label>
+              <qr>!data.qr</qr>
+            </init>
+            <endpoints/>
+            <customization/>
+          </arguments>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+        </parameters>
+        <annotations>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <input/>
+        <output/>
+        <implementation>
+          <description/>
+        </implementation>
+      </call>
+      <call id="a6" endpoint="ipc_send">
+        <parameters>
+          <label>Signal Keyence End</label>
+          <method>:post</method>
+          <arguments>
+            <id>measureready</id>
+            <message>ok</message>
+            <ttl>340</ttl>
+          </arguments>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+        </parameters>
+        <annotations>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <input/>
+        <output/>
+        <implementation>
+          <description/>
+        </implementation>
+      </call>
+    </description>
+  time:timestamp: '2021-11-04T16:33:11.927+01:00'
+---
+event:
+  concept:instance: 1219
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: dataelements/change
+  data:
+    data_changer:
+    - qr
+    data_values:
+      qr: "*268MFA466*TZHZE 020"
+  time:timestamp: '2021-11-04T16:33:12.131+01:00'
+---
+event:
+  concept:instance: 1219
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: state/change
+  cpee:state: running
+  time:timestamp: '2021-11-04T16:33:13.263+01:00'
+---
+event:
+  concept:instance: 1219
+  concept:name: Measure with Keyence
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 20b9ce974070c84b9255ab54618c3e9f
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  data:
+    data_send:
+    - name: behavior
+      value: wait_running
+    - name: url
+      value: https://centurio.work/design/server/Keyence%20Measurement%20from%20Pallet.dir/Production%20Vx.xml
+    - name: init
+      value: '{ "machine": "keyence", "program": "gfrast1", "program_path": "program",
+        "trigger": "state", "trigger_start": "active", "trigger_pause": "notpossible",
+        "trigger_end": "inactive", "event_batch": 333, "label": "Natty Keyence Measuring",
+        "qr": "*268MFA466*TZHZE 020" }'
+    - name: endpoints
+      value: 
+    - name: customization
+      value: 
+  time:timestamp: '2021-11-04T16:33:13.278+01:00'
+---
+event:
+  concept:instance: 1219
+  concept:name: Measure with Keyence
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 20b9ce974070c84b9255ab54618c3e9f
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: task/instantiation
+  data:
+    data_receiver:
+      CPEE-INSTANCE: '1221'
+      CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1221
+      CPEE-INSTANCE-UUID: e0466470-7437-4753-8756-5e6d44ce6814
+      CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T16:33:13.584+01:00'
+---
+event:
+  concept:instance: 1219
+  concept:name: Measure with Keyence
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 20b9ce974070c84b9255ab54618c3e9f
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: instance
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1221'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1221
+        CPEE-INSTANCE-UUID: e0466470-7437-4753-8756-5e6d44ce6814
+        CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T16:33:13.595+01:00'
+---
+event:
+  concept:instance: 1219
+  concept:name: Measure with Keyence
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 20b9ce974070c84b9255ab54618c3e9f
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1221'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1221
+        CPEE-INSTANCE-UUID: e0466470-7437-4753-8756-5e6d44ce6814
+        CPEE-STATE: running
+  time:timestamp: '2021-11-04T16:33:15.219+01:00'
+---
+event:
+  concept:instance: 1219
+  concept:name: Measure with Keyence
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 20b9ce974070c84b9255ab54618c3e9f
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1221'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1221
+        CPEE-INSTANCE-UUID: e0466470-7437-4753-8756-5e6d44ce6814
+        CPEE-STATE: finished
+        finished: 'yes'
+        machine: keyence
+        program: gfrast1
+        queue: ''
+        program_path: program
+        trigger: state
+        trigger_start: active
+        trigger_pause: notpossible
+        trigger_end: inactive
+        event_batch: 333
+        label: Natty Keyence Measuring
+        qr: "*268MFA466*TZHZE 020"
+  time:timestamp: '2021-11-04T16:34:53.589+01:00'
+---
+event:
+  concept:instance: 1219
+  concept:name: Measure with Keyence
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 20b9ce974070c84b9255ab54618c3e9f
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T16:34:53.604+01:00'
+---
+event:
+  concept:instance: 1219
+  concept:name: Signal Keyence End
+  id:id: a6
+  cpee:activity: a6
+  cpee:activity_uuid: 8887b07c8e2c51901ec1f939f072e28b
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  data:
+    data_send:
+    - name: id
+      value: measureready
+    - name: message
+      value: ok
+    - name: ttl
+      value: '340'
+  time:timestamp: '2021-11-04T16:34:53.613+01:00'
+---
+event:
+  concept:instance: 1219
+  concept:name: Signal Keyence End
+  id:id: a6
+  cpee:activity: a6
+  cpee:activity_uuid: 8887b07c8e2c51901ec1f939f072e28b
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  time:timestamp: '2021-11-04T16:34:53.652+01:00'
+---
+event:
+  concept:instance: 1219
+  concept:name: Signal Keyence End
+  id:id: a6
+  cpee:activity: a6
+  cpee:activity_uuid: 8887b07c8e2c51901ec1f939f072e28b
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T16:34:53.661+01:00'
+---
+event:
+  concept:instance: 1219
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 9d57dcc4-1efd-4346-98ba-5d1376aed348
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: state/change
+  cpee:state: finished
+  time:timestamp: '2021-11-04T16:34:53.672+01:00'

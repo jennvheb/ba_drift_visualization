@@ -1,0 +1,1712 @@
+---
+log:
+  extension:
+    time: http://www.xes-standard.org/time.xesext
+    concept: http://www.xes-standard.org/concept.xesext
+    organisational: http://www.xes-standard.org/org.xesext
+    lifecycle: http://www.xes-standard.org/lifecycle.xesext
+    cpee: http://cpee.org/cpee.xesext
+  global:
+    trace:
+      concept:name: __INVALID__
+      cpee:name: __INVALID__
+    event:
+      concept:instance: -1
+      concept:name: __INVALID__
+      concept:endpoint: ''
+      id:id: ''
+      cpee:uuid: ''
+      lifecycle:transition: complete
+      cpee:lifecycle:transition: activity/calling
+      time:timestamp: ''
+  classifier:
+    Data: data_send data_received data_changed data_values
+    Data_Received: data_receiver
+    Data_Send: data_send
+    Data_Changed: data_changer
+    Data_Values: data_values
+  trace:
+    concept:name: 1094
+    cpee:name: Part IRB2600 Measure
+    cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+---
+event:
+  concept:instance: 1094
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: dataelements/change
+  data:
+    data_changer:
+    - x
+    - y
+    - z
+    data_values:
+      x: '0'
+      y: '0'
+      z: '0'
+  time:timestamp: '2021-11-04T15:58:41.884+01:00'
+---
+event:
+  concept:instance: 1094
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: endpoints/change
+  data:
+    data_changer:
+    - start_url
+    - move_lift
+    - ipc_receive
+    - ipc_send
+    data_values:
+      start_url: https://centurio.work/flow/start/url/
+      move_lift: https://centurio.work/ing/keyence-lift/
+      ipc_receive: https-get://centurio.work/ing/correlators/message/receive/
+      ipc_send: https://centurio.work/ing/correlators/message/send/
+  time:timestamp: '2021-11-04T15:58:41.900+01:00'
+---
+event:
+  concept:instance: 1094
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: attributes/change
+  data:
+    data_changer:
+    - info
+    - modeltype
+    - theme
+    - customer
+    - status
+    - artefacts
+    - creator
+    - author
+    - design_stage
+    - design_dir
+    data_values:
+      info: Part IRB2600 Measure
+      modeltype: CPEE
+      theme: default
+      customer: pilotfabrik
+      status: development
+      artefacts: '[ { "group": "Orders", "name": "Measure" } ]'
+      creator: Juergen Mangler
+      author: Juergen Mangler
+      design_stage: development
+      design_dir: Keyence Measurement from Pallet.dir
+  time:timestamp: '2021-11-04T15:58:41.917+01:00'
+---
+event:
+  concept:instance: 1094
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: description/change
+  cpee:description: |
+    <?xml version="1.0"?>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <call id="a1" endpoint="start_url">
+        <parameters>
+          <label>IRB2600 Door to Scanner</label>
+          <method>:post</method>
+          <arguments>
+            <info>IRB2600 Door to Scanner</info>
+            <behavior>wait_running</behavior>
+            <url>https://centurio.work/design/server/Keyence Measurement from Pallet.dir/X%20IRB2600%20Execution.xml</url>
+            <init>
+              <includes>https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod</includes>
+              <move>https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/move_Door_to_Scanner.mod</move>
+            </init>
+          </arguments>
+          <sensors/>
+        </parameters>
+        <_timing>
+          <_timing_min/>
+          <_timing_max/>
+          <_timing_avg/>
+        </_timing>
+        <_notes>
+          <_notes_general/>
+          <_notes_output/>
+          <_attachments/>
+        </_notes>
+        <code>
+          <finalize output="result"/>
+          <update output="result"/>
+        </code>
+      </call>
+      <call id="a2" endpoint="start_url">
+        <parameters>
+          <label>IRB2600 Scan Put</label>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://centurio.work/design/server/Keyence Measurement from Pallet.dir/X%20IRB2600%20Execution.xml</url>
+            <init>
+              <includes>https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod</includes>
+              <move>https://centurio.work/artefacts/etm/IRB2600/raw/master/Measure/ScanPos.mod</move>
+              <z>-83</z>
+              <gripper>Open</gripper>
+            </init>
+            <endpoints/>
+            <customization/>
+          </arguments>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+        </parameters>
+        <code>
+          <prepare/>
+          <finalize output="result"/>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <input/>
+        <output/>
+        <implementation>
+          <description/>
+        </implementation>
+        <code>
+          <description/>
+        </code>
+      </call>
+      <manipulate id="a13" label="Get Current Time">data.timing = Time.now</manipulate>
+      <call id="a12" endpoint="move_lift">
+        <parameters>
+          <label>Move Down</label>
+          <method>:post</method>
+          <arguments>
+            <mode>1</mode>
+          </arguments>
+          <stream>
+            <sensors/>
+            <aggregators/>
+            <costs/>
+          </stream>
+        </parameters>
+        <code>
+          <prepare/>
+          <finalize output="result"/>
+          <update output="result"/>
+          <rescue output="result">'Oh no'</rescue>
+        </code>
+        <annotations>
+          <_timing>
+            <_timing_wait/>
+            <_timing_threshold/>
+            <_timing_min/>
+            <_timing_max/>
+            <_timing_avg/>
+          </_timing>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+      </call>
+      <call id="a17" endpoint="ipc_receive">
+        <parameters>
+          <label>wait</label>
+          <method>:post</method>
+          <arguments>
+            <id>measureready</id>
+            <ttl>0</ttl>
+          </arguments>
+          <stream>
+            <sensors/>
+            <aggregators/>
+            <costs/>
+          </stream>
+        </parameters>
+        <code>
+          <prepare/>
+          <finalize output="result"/>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_timing>
+            <_timing_wait/>
+            <_timing_threshold/>
+            <_timing_min/>
+            <_timing_max/>
+            <_timing_avg/>
+          </_timing>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+      </call>
+      <call id="a21" endpoint="move_lift">
+        <parameters>
+          <label>Move Up</label>
+          <method>:post</method>
+          <arguments>
+            <mode>2</mode>
+          </arguments>
+          <stream>
+            <sensors/>
+            <aggregators/>
+            <costs/>
+          </stream>
+        </parameters>
+        <code>
+          <prepare/>
+          <finalize output="result"/>
+          <update output="result"/>
+          <rescue output="result">'Oh no'</rescue>
+        </code>
+        <annotations>
+          <_timing>
+            <_timing_wait/>
+            <_timing_threshold/>
+            <_timing_min/>
+            <_timing_max/>
+            <_timing_avg/>
+          </_timing>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+      </call>
+      <manipulate id="a19" label="Wait While Moving Up">sleep((Time.now - data.timing) + 2)</manipulate>
+      <call id="a4" endpoint="start_url">
+        <parameters>
+          <label>IRB2600 Scan Take</label>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://centurio.work/design/server/Keyence Measurement from Pallet.dir/X%20IRB2600%20Execution.xml</url>
+            <init>
+              <includes>https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod</includes>
+              <move>https://centurio.work/artefacts/etm/IRB2600/raw/master/Measure/ScanPos.mod</move>
+              <z>-83</z>
+              <gripper>Close</gripper>
+            </init>
+            <endpoints/>
+            <customization/>
+          </arguments>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+        </parameters>
+        <code>
+          <prepare/>
+          <finalize output="result"/>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <input/>
+        <output/>
+        <implementation>
+          <description/>
+        </implementation>
+        <code>
+          <description/>
+        </code>
+      </call>
+      <call id="a3" endpoint="start_url">
+        <parameters>
+          <label>IRB2600 Scanner to Door</label>
+          <method>:post</method>
+          <arguments>
+            <info>IRB2600 Scanner to Door</info>
+            <behavior>wait_running</behavior>
+            <url>https://centurio.work/design/server/Keyence Measurement from Pallet.dir/X%20IRB2600%20Execution.xml</url>
+            <init>
+              <includes>https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod</includes>
+              <move>https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/move_Scanner_to_Door.mod</move>
+            </init>
+          </arguments>
+          <sensors/>
+        </parameters>
+        <_timing>
+          <_timing_min/>
+          <_timing_max/>
+          <_timing_avg/>
+        </_timing>
+        <_notes>
+          <_notes_general/>
+          <_notes_output/>
+          <_attachments/>
+        </_notes>
+        <code>
+          <finalize output="result"/>
+          <update output="result"/>
+        </code>
+      </call>
+      <call id="a14" endpoint="start_url">
+        <parameters>
+          <label>IRB2600 Door to Portal</label>
+          <method>:post</method>
+          <arguments>
+            <info>IRB2600 Door to Portal</info>
+            <behavior>wait_running</behavior>
+            <url>https://centurio.work/design/server/Keyence Measurement from Pallet.dir/X%20IRB2600%20Execution.xml</url>
+            <init>
+              <includes>https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod</includes>
+              <move>https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/move_Door_to_Portal.mod</move>
+            </init>
+          </arguments>
+          <sensors/>
+        </parameters>
+        <_timing>
+          <_timing_min/>
+          <_timing_max/>
+          <_timing_avg/>
+        </_timing>
+        <_notes>
+          <_notes_general/>
+          <_notes_output/>
+          <_attachments/>
+        </_notes>
+        <code>
+          <finalize output="result"/>
+          <update output="result"/>
+        </code>
+      </call>
+      <call id="a16" endpoint="start_url">
+        <parameters>
+          <label>IRB2600 To Tray Open</label>
+          <method>:post</method>
+          <arguments>
+            <behavior>wait_running</behavior>
+            <url>https://centurio.work/design/server/Keyence Measurement from Pallet.dir/X%20IRB2600%20Execution.xml</url>
+            <init>
+              <includes>https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod</includes>
+              <move>https://centurio.work/artefacts/etm/IRB2600/raw/master/Measure/move_Portal_to_Tray.mod</move>
+              <x>!data.x</x>
+              <y>!data.y</y>
+              <z>!data.z</z>
+              <gripper>Open</gripper>
+            </init>
+            <endpoints/>
+            <customization/>
+          </arguments>
+          <_context_data_analysis>
+            <probes/>
+            <ips/>
+          </_context_data_analysis>
+          <report>
+            <url/>
+          </report>
+        </parameters>
+        <code>
+          <prepare/>
+          <finalize output="result"/>
+          <update output="result"/>
+          <rescue output="result"/>
+        </code>
+        <annotations>
+          <_timing>
+            <_timing_weight/>
+            <_timing_avg/>
+            <explanations/>
+          </_timing>
+          <_notes>
+            <_notes_general/>
+          </_notes>
+        </annotations>
+        <input/>
+        <output/>
+        <implementation>
+          <description/>
+        </implementation>
+        <code>
+          <description/>
+        </code>
+      </call>
+    </description>
+  time:timestamp: '2021-11-04T15:58:41.942+01:00'
+---
+event:
+  concept:instance: 1094
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: dataelements/change
+  data:
+    data_changer:
+    - x
+    - y
+    - z
+    data_values:
+      x: "-85.87"
+      y: '60.5'
+      z: '215.0'
+  time:timestamp: '2021-11-04T15:58:42.125+01:00'
+---
+event:
+  concept:instance: 1094
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: state/change
+  cpee:state: running
+  time:timestamp: '2021-11-04T15:58:43.068+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Door to Scanner
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 791437d53f130c3069eee8dfa92b5e21
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  data:
+    data_send:
+    - name: info
+      value: IRB2600 Door to Scanner
+    - name: behavior
+      value: wait_running
+    - name: url
+      value: https://centurio.work/design/server/Keyence Measurement from Pallet.dir/X%20IRB2600%20Execution.xml
+    - name: init
+      value: '{ "includes": "https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod",
+        "move": "https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/move_Door_to_Scanner.mod"
+        }'
+  time:timestamp: '2021-11-04T15:58:43.076+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Door to Scanner
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 791437d53f130c3069eee8dfa92b5e21
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: task/instantiation
+  data:
+    data_receiver:
+      CPEE-INSTANCE: '1095'
+      CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1095
+      CPEE-INSTANCE-UUID: c5de2aab-dbd4-4538-a204-d32115452861
+      CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T15:58:43.357+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Door to Scanner
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 791437d53f130c3069eee8dfa92b5e21
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: instance
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1095'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1095
+        CPEE-INSTANCE-UUID: c5de2aab-dbd4-4538-a204-d32115452861
+        CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T15:58:43.364+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Door to Scanner
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 791437d53f130c3069eee8dfa92b5e21
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1095'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1095
+        CPEE-INSTANCE-UUID: c5de2aab-dbd4-4538-a204-d32115452861
+        CPEE-STATE: running
+  time:timestamp: '2021-11-04T15:58:44.528+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Door to Scanner
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 791437d53f130c3069eee8dfa92b5e21
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1095'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1095
+        CPEE-INSTANCE-UUID: c5de2aab-dbd4-4538-a204-d32115452861
+        CPEE-STATE: finished
+        includes: https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod
+        program: "MODULE OperationModule\n\n    \n  PERS tooldata tool_Parallelgreifer_Standard:=[TRUE,[[0,0,138.9],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];\n\n
+          \ PERS wobjdata wobj_Palette:=[FALSE,TRUE,\"\",[[-701.200489371,303.066515226,114.117418405],[0.006407291,-0.380247924,-0.924858642,-0.002637288]],[[0,0,0],[1,0,0,0]]];\n\n\r\n
+          \ CONST robtarget MT45Front:=[[584.82,501.91,464.44],[0.000313025,0.114944,-0.993361,-0.00454666],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\r\n\n
+          \ CONST robtarget DoorHighpoint:=[[584.82,501.91,1160],[0,-0.382683434,0.923879532,0],[0,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\r\n\n
+          \ CONST robtarget EntryMeasurementDevice:=[[1113.09,-377.52,1159.93],[1.87975E-05,6.76229E-06,-1,-4.31763E-06],[-1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\r\n\n\n\n
+          \ PROC Operation()\r\n    !*******************************\r\n    ! In diesem
+          Modul wird das GV12 vom Roboter von ausserhalb der Maschine ueber den Scanner
+          gefahren.\r\n    !*******************************\r\n    MoveL MT45Front,vFast,z50,tool_Parallelgreifer_Standard\\WObj:=wobj0;\r\n
+          \   MoveL DoorHighpoint,vFast,z100,tool_Parallelgreifer_Standard\\wObj:=wobj0;\r\n
+          \   MoveL EntryMeasurementDevice,vFast,z10,tool_Parallelgreifer_Standard\\wObj:=wobj0;\r\n
+          \ ENDPROC\r\n\r\n\nENDMODULE"
+        started: true
+        urls: []
+        xxx:
+          timestamp: '2021-11-04T15:39:28.2338976+01:00'
+          ID: PF_IRB2600.Controller.State
+          description: ''
+          name: State
+          path: PF_IRB2600/Controller/State
+          source: RobotService
+          value: MotorsOn
+          meta:
+            type: ABB.Robotics.Controllers.ControllerState
+            enumeration:
+            - Init
+            - MotorsOff
+            - MotorsOn
+            - GuardStop
+            - EmergencyStop
+            - EmergencyStopReset
+            - SystemFailure
+            - Unknown
+        move: https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/move_Door_to_Scanner.mod
+        vars: "\n    \n  PERS tooldata tool_Parallelgreifer_Standard:=[TRUE,[[0,0,138.9],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];\n\n
+          \ PERS wobjdata wobj_Palette:=[FALSE,TRUE,\"\",[[-701.200489371,303.066515226,114.117418405],[0.006407291,-0.380247924,-0.924858642,-0.002637288]],[[0,0,0],[1,0,0,0]]];\n\n\r\n
+          \ CONST robtarget MT45Front:=[[584.82,501.91,464.44],[0.000313025,0.114944,-0.993361,-0.00454666],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\r\n\n
+          \ CONST robtarget DoorHighpoint:=[[584.82,501.91,1160],[0,-0.382683434,0.923879532,0],[0,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\r\n\n
+          \ CONST robtarget EntryMeasurementDevice:=[[1113.09,-377.52,1159.93],[1.87975E-05,6.76229E-06,-1,-4.31763E-06],[-1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\r\n\n"
+        yyy:
+          timestamp: '2021-11-04T15:59:35.8164186+01:00'
+          ID: PF_IRB2600.Controller.StateMachine
+          description: ''
+          name: StateMachine
+          path: PF_IRB2600/Controller/StateMachine
+          source: RobotService
+          value: Finished
+          meta:
+            type: System.String
+            enumeration: 
+        state: MotorsOn
+        x: 0
+        statemachine: Finished
+        y: 0
+        z: 0
+        gripper: Open
+        check_var1: PF_IRB2600.Controller.State
+        check_var2: PF_IRB2600.Controller.StateMachine
+  time:timestamp: '2021-11-04T15:58:56.869+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Door to Scanner
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 791437d53f130c3069eee8dfa92b5e21
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T15:58:56.883+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scan Put
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 1eb643f977a0d92f1af17a76b47a860c
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  data:
+    data_send:
+    - name: behavior
+      value: wait_running
+    - name: url
+      value: https://centurio.work/design/server/Keyence Measurement from Pallet.dir/X%20IRB2600%20Execution.xml
+    - name: init
+      value: '{ "includes": "https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod",
+        "move": "https://centurio.work/artefacts/etm/IRB2600/raw/master/Measure/ScanPos.mod",
+        "z": -83, "gripper": "Open" }'
+    - name: endpoints
+      value: 
+    - name: customization
+      value: 
+  time:timestamp: '2021-11-04T15:58:56.894+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scan Put
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 1eb643f977a0d92f1af17a76b47a860c
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: task/instantiation
+  data:
+    data_receiver:
+      CPEE-INSTANCE: '1096'
+      CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1096
+      CPEE-INSTANCE-UUID: 47c378b1-ff93-4c28-99b9-e011c3da5672
+      CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T15:58:57.207+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scan Put
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 1eb643f977a0d92f1af17a76b47a860c
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: instance
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1096'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1096
+        CPEE-INSTANCE-UUID: 47c378b1-ff93-4c28-99b9-e011c3da5672
+        CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T15:58:57.223+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scan Put
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 1eb643f977a0d92f1af17a76b47a860c
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1096'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1096
+        CPEE-INSTANCE-UUID: 47c378b1-ff93-4c28-99b9-e011c3da5672
+        CPEE-STATE: running
+  time:timestamp: '2021-11-04T15:58:58.456+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scan Put
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 1eb643f977a0d92f1af17a76b47a860c
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1096'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1096
+        CPEE-INSTANCE-UUID: 47c378b1-ff93-4c28-99b9-e011c3da5672
+        CPEE-STATE: finished
+        includes: https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod
+        program: "MODULE OperationModule\n\n    \n  PERS tooldata tool_Parallelgreifer_Standard:=[TRUE,[[0,0,138.9],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];\n\n
+          \ PERS wobjdata wobj_Palette:=[FALSE,TRUE,\"\",[[-701.200489371,303.066515226,114.117418405],[0.006407291,-0.380247924,-0.924858642,-0.002637288]],[[0,0,0],[1,0,0,0]]];\n\n\n
+          \   CONST robtarget EntryMeasurementDevice:=[[1113.09,-377.52,1159.93],[1.87975E-05,6.76229E-06,-1,-4.31763E-06],[-1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget AboveMesurementDevice:=[[1278,-425,1100],[0,0.71679,-0.69729,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget ExitMesurementDevice:=[[1105.00,-365.97,974.92],[2.11577E-05,1.28765E-05,-1,-2.80396E-06],[-1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n\n
+          \   VAR intnum zpos:=-83;\n\n\n\n\n    PROC Operation()\n        !*******************************\n
+          \       ! In diesem Modul wird der Turm vom Roboter durch den Scanner gefahren.\n
+          \       !*******************************\n        MoveL EntryMeasurementDevice,vFast,z10,tool_Parallelgreifer_Standard\\wObj:=wobj0;\n
+          \       MoveL AboveMesurementDevice,vMedium,z10,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \       MoveL Offs(AboveMesurementDevice,12,-12,zpos),vVerySlow,z0,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \       WaitTime 1;\n        OpenGripper;\n        MoveL AboveMesurementDevice,vVerySlow,z10,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \   ENDPROC\n\n\nENDMODULE"
+        started: true
+        urls: []
+        xxx:
+          timestamp: '2021-11-04T15:39:28.2338976+01:00'
+          ID: PF_IRB2600.Controller.State
+          description: ''
+          name: State
+          path: PF_IRB2600/Controller/State
+          source: RobotService
+          value: MotorsOn
+          meta:
+            type: ABB.Robotics.Controllers.ControllerState
+            enumeration:
+            - Init
+            - MotorsOff
+            - MotorsOn
+            - GuardStop
+            - EmergencyStop
+            - EmergencyStopReset
+            - SystemFailure
+            - Unknown
+        move: https://centurio.work/artefacts/etm/IRB2600/raw/master/Measure/ScanPos.mod
+        vars: "\n    \n  PERS tooldata tool_Parallelgreifer_Standard:=[TRUE,[[0,0,138.9],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];\n\n
+          \ PERS wobjdata wobj_Palette:=[FALSE,TRUE,\"\",[[-701.200489371,303.066515226,114.117418405],[0.006407291,-0.380247924,-0.924858642,-0.002637288]],[[0,0,0],[1,0,0,0]]];\n\n\n
+          \   CONST robtarget EntryMeasurementDevice:=[[1113.09,-377.52,1159.93],[1.87975E-05,6.76229E-06,-1,-4.31763E-06],[-1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget AboveMesurementDevice:=[[1278,-425,1100],[0,0.71679,-0.69729,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget ExitMesurementDevice:=[[1105.00,-365.97,974.92],[2.11577E-05,1.28765E-05,-1,-2.80396E-06],[-1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n\n
+          \   VAR intnum zpos:=-83;\n\n"
+        yyy:
+          timestamp: '2021-11-04T16:00:01.8996645+01:00'
+          ID: PF_IRB2600.Controller.StateMachine
+          description: ''
+          name: StateMachine
+          path: PF_IRB2600/Controller/StateMachine
+          source: RobotService
+          value: Finished
+          meta:
+            type: System.String
+            enumeration: 
+        state: MotorsOn
+        x: 0
+        z: -83
+        gripper: Open
+        statemachine: Finished
+        y: 0
+        check_var1: PF_IRB2600.Controller.State
+        check_var2: PF_IRB2600.Controller.StateMachine
+  time:timestamp: '2021-11-04T15:59:23.604+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scan Put
+  id:id: a2
+  cpee:activity: a2
+  cpee:activity_uuid: 1eb643f977a0d92f1af17a76b47a860c
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T15:59:23.618+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: Get Current Time
+  id:id: a13
+  cpee:activity: a13
+  cpee:activity_uuid: c5f20cbe43f455373d3f5d4931cd21dd
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: dataelements/change
+  data:
+    data_changer:
+    - timing
+    data_values:
+      timing: '2021-11-04 15:59:23 +0100'
+  time:timestamp: '2021-11-04T15:59:23.635+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: Get Current Time
+  id:id: a13
+  cpee:activity: a13
+  cpee:activity_uuid: c5f20cbe43f455373d3f5d4931cd21dd
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T15:59:23.645+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: Move Down
+  id:id: a12
+  cpee:activity: a12
+  cpee:activity_uuid: 8ac830babae473a067b7dc8ffd863a4f
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  data:
+    data_send:
+    - name: mode
+      value: '1'
+  time:timestamp: '2021-11-04T15:59:23.657+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: Move Down
+  id:id: a12
+  cpee:activity: a12
+  cpee:activity_uuid: 8ac830babae473a067b7dc8ffd863a4f
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: error
+      mimetype: application/json
+      data:
+        status: 303
+        error: 
+  time:timestamp: '2021-11-04T15:59:23.668+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: Move Down
+  id:id: a12
+  cpee:activity: a12
+  cpee:activity_uuid: 8ac830babae473a067b7dc8ffd863a4f
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T15:59:23.680+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: wait
+  id:id: a17
+  cpee:activity: a17
+  cpee:activity_uuid: 5322a4d395178ac45f1ecc863f2c4cb4
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  data:
+    data_send:
+    - name: id
+      value: measureready
+    - name: ttl
+      value: '0'
+  time:timestamp: '2021-11-04T15:59:23.690+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: wait
+  id:id: a17
+  cpee:activity: a17
+  cpee:activity_uuid: 5322a4d395178ac45f1ecc863f2c4cb4
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: slotid
+      data: de75cafb-447f-456c-9d13-3abeb6091b95
+  time:timestamp: '2021-11-04T15:59:23.701+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: wait
+  id:id: a17
+  cpee:activity: a17
+  cpee:activity_uuid: 5322a4d395178ac45f1ecc863f2c4cb4
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: message
+      mimetype: application/json
+      data:
+        message: ok
+        delivery: source
+  time:timestamp: '2021-11-04T15:59:44.605+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: wait
+  id:id: a17
+  cpee:activity: a17
+  cpee:activity_uuid: 5322a4d395178ac45f1ecc863f2c4cb4
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T15:59:44.618+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: Move Up
+  id:id: a21
+  cpee:activity: a21
+  cpee:activity_uuid: 2dab00600b8ca476e11616d5202bb2d2
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  data:
+    data_send:
+    - name: mode
+      value: '2'
+  time:timestamp: '2021-11-04T15:59:44.629+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: Move Up
+  id:id: a21
+  cpee:activity: a21
+  cpee:activity_uuid: 2dab00600b8ca476e11616d5202bb2d2
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: error
+      mimetype: application/json
+      data:
+        status: 303
+        error: 
+  time:timestamp: '2021-11-04T15:59:44.670+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: Move Up
+  id:id: a21
+  cpee:activity: a21
+  cpee:activity_uuid: 2dab00600b8ca476e11616d5202bb2d2
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T15:59:44.680+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: Wait While Moving Up
+  id:id: a19
+  cpee:activity: a19
+  cpee:activity_uuid: bee03f6f2c3157fd47f564dcbc504062
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T16:00:07.651+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scan Take
+  id:id: a4
+  cpee:activity: a4
+  cpee:activity_uuid: 7cd4d7cadaa48a4aa2669fdd015c8974
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  data:
+    data_send:
+    - name: behavior
+      value: wait_running
+    - name: url
+      value: https://centurio.work/design/server/Keyence Measurement from Pallet.dir/X%20IRB2600%20Execution.xml
+    - name: init
+      value: '{ "includes": "https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod",
+        "move": "https://centurio.work/artefacts/etm/IRB2600/raw/master/Measure/ScanPos.mod",
+        "z": -83, "gripper": "Close" }'
+    - name: endpoints
+      value: 
+    - name: customization
+      value: 
+  time:timestamp: '2021-11-04T16:00:07.662+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scan Take
+  id:id: a4
+  cpee:activity: a4
+  cpee:activity_uuid: 7cd4d7cadaa48a4aa2669fdd015c8974
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: task/instantiation
+  data:
+    data_receiver:
+      CPEE-INSTANCE: '1098'
+      CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1098
+      CPEE-INSTANCE-UUID: d87027d8-5537-40a9-af62-a7aedc4cd07a
+      CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T16:00:07.881+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scan Take
+  id:id: a4
+  cpee:activity: a4
+  cpee:activity_uuid: 7cd4d7cadaa48a4aa2669fdd015c8974
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: instance
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1098'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1098
+        CPEE-INSTANCE-UUID: d87027d8-5537-40a9-af62-a7aedc4cd07a
+        CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T16:00:07.891+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scan Take
+  id:id: a4
+  cpee:activity: a4
+  cpee:activity_uuid: 7cd4d7cadaa48a4aa2669fdd015c8974
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1098'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1098
+        CPEE-INSTANCE-UUID: d87027d8-5537-40a9-af62-a7aedc4cd07a
+        CPEE-STATE: running
+  time:timestamp: '2021-11-04T16:00:09.043+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scan Take
+  id:id: a4
+  cpee:activity: a4
+  cpee:activity_uuid: 7cd4d7cadaa48a4aa2669fdd015c8974
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1098'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1098
+        CPEE-INSTANCE-UUID: d87027d8-5537-40a9-af62-a7aedc4cd07a
+        CPEE-STATE: finished
+        includes: https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod
+        program: "MODULE OperationModule\n\n    \n  PERS tooldata tool_Parallelgreifer_Standard:=[TRUE,[[0,0,138.9],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];\n\n
+          \ PERS wobjdata wobj_Palette:=[FALSE,TRUE,\"\",[[-701.200489371,303.066515226,114.117418405],[0.006407291,-0.380247924,-0.924858642,-0.002637288]],[[0,0,0],[1,0,0,0]]];\n\n\n
+          \   CONST robtarget EntryMeasurementDevice:=[[1113.09,-377.52,1159.93],[1.87975E-05,6.76229E-06,-1,-4.31763E-06],[-1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget AboveMesurementDevice:=[[1278,-425,1100],[0,0.71679,-0.69729,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget ExitMesurementDevice:=[[1105.00,-365.97,974.92],[2.11577E-05,1.28765E-05,-1,-2.80396E-06],[-1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n\n
+          \   VAR intnum zpos:=-83;\n\n\n\n\n    PROC Operation()\n        !*******************************\n
+          \       ! In diesem Modul wird der Turm vom Roboter durch den Scanner gefahren.\n
+          \       !*******************************\n        MoveL EntryMeasurementDevice,vFast,z10,tool_Parallelgreifer_Standard\\wObj:=wobj0;\n
+          \       MoveL AboveMesurementDevice,vMedium,z10,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \       MoveL Offs(AboveMesurementDevice,12,-12,zpos),vVerySlow,z0,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \       WaitTime 1;\n        CloseGripper;\n        MoveL AboveMesurementDevice,vVerySlow,z10,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \   ENDPROC\n\n\nENDMODULE"
+        started: true
+        urls: []
+        xxx:
+          timestamp: '2021-11-04T15:39:28.2338976+01:00'
+          ID: PF_IRB2600.Controller.State
+          description: ''
+          name: State
+          path: PF_IRB2600/Controller/State
+          source: RobotService
+          value: MotorsOn
+          meta:
+            type: ABB.Robotics.Controllers.ControllerState
+            enumeration:
+            - Init
+            - MotorsOff
+            - MotorsOn
+            - GuardStop
+            - EmergencyStop
+            - EmergencyStopReset
+            - SystemFailure
+            - Unknown
+        move: https://centurio.work/artefacts/etm/IRB2600/raw/master/Measure/ScanPos.mod
+        vars: "\n    \n  PERS tooldata tool_Parallelgreifer_Standard:=[TRUE,[[0,0,138.9],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];\n\n
+          \ PERS wobjdata wobj_Palette:=[FALSE,TRUE,\"\",[[-701.200489371,303.066515226,114.117418405],[0.006407291,-0.380247924,-0.924858642,-0.002637288]],[[0,0,0],[1,0,0,0]]];\n\n\n
+          \   CONST robtarget EntryMeasurementDevice:=[[1113.09,-377.52,1159.93],[1.87975E-05,6.76229E-06,-1,-4.31763E-06],[-1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget AboveMesurementDevice:=[[1278,-425,1100],[0,0.71679,-0.69729,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget ExitMesurementDevice:=[[1105.00,-365.97,974.92],[2.11577E-05,1.28765E-05,-1,-2.80396E-06],[-1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n\n
+          \   VAR intnum zpos:=-83;\n\n"
+        yyy:
+          timestamp: '2021-11-04T16:01:13.3009899+01:00'
+          ID: PF_IRB2600.Controller.StateMachine
+          description: ''
+          name: StateMachine
+          path: PF_IRB2600/Controller/StateMachine
+          source: RobotService
+          value: Finished
+          meta:
+            type: System.String
+            enumeration: 
+        state: MotorsOn
+        x: 0
+        z: -83
+        gripper: Close
+        statemachine: Finished
+        y: 0
+        check_var1: PF_IRB2600.Controller.State
+        check_var2: PF_IRB2600.Controller.StateMachine
+  time:timestamp: '2021-11-04T16:00:34.113+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scan Take
+  id:id: a4
+  cpee:activity: a4
+  cpee:activity_uuid: 7cd4d7cadaa48a4aa2669fdd015c8974
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T16:00:34.129+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scanner to Door
+  id:id: a3
+  cpee:activity: a3
+  cpee:activity_uuid: 6a89d8284a84a763c918eca71d1aa990
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  data:
+    data_send:
+    - name: info
+      value: IRB2600 Scanner to Door
+    - name: behavior
+      value: wait_running
+    - name: url
+      value: https://centurio.work/design/server/Keyence Measurement from Pallet.dir/X%20IRB2600%20Execution.xml
+    - name: init
+      value: '{ "includes": "https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod",
+        "move": "https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/move_Scanner_to_Door.mod"
+        }'
+  time:timestamp: '2021-11-04T16:00:34.141+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scanner to Door
+  id:id: a3
+  cpee:activity: a3
+  cpee:activity_uuid: 6a89d8284a84a763c918eca71d1aa990
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: task/instantiation
+  data:
+    data_receiver:
+      CPEE-INSTANCE: '1099'
+      CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1099
+      CPEE-INSTANCE-UUID: b3138c07-5fc5-4abe-8a91-e6f625e25b2b
+      CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T16:00:34.354+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scanner to Door
+  id:id: a3
+  cpee:activity: a3
+  cpee:activity_uuid: 6a89d8284a84a763c918eca71d1aa990
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: instance
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1099'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1099
+        CPEE-INSTANCE-UUID: b3138c07-5fc5-4abe-8a91-e6f625e25b2b
+        CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T16:00:34.362+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scanner to Door
+  id:id: a3
+  cpee:activity: a3
+  cpee:activity_uuid: 6a89d8284a84a763c918eca71d1aa990
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1099'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1099
+        CPEE-INSTANCE-UUID: b3138c07-5fc5-4abe-8a91-e6f625e25b2b
+        CPEE-STATE: running
+  time:timestamp: '2021-11-04T16:00:35.554+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scanner to Door
+  id:id: a3
+  cpee:activity: a3
+  cpee:activity_uuid: 6a89d8284a84a763c918eca71d1aa990
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1099'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1099
+        CPEE-INSTANCE-UUID: b3138c07-5fc5-4abe-8a91-e6f625e25b2b
+        CPEE-STATE: finished
+        includes: https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod
+        program: "MODULE OperationModule\n\n    \n  PERS tooldata tool_Parallelgreifer_Standard:=[TRUE,[[0,0,138.9],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];\n\n
+          \ PERS wobjdata wobj_Palette:=[FALSE,TRUE,\"\",[[-701.200489371,303.066515226,114.117418405],[0.006407291,-0.380247924,-0.924858642,-0.002637288]],[[0,0,0],[1,0,0,0]]];\n\n\r\n
+          \   CONST robtarget DoorHighpoint:=[[584.82,501.91,1160],[0,-0.382683434,0.923879532,0],[0,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\r\n\n
+          \   CONST robtarget EntryMeasurementDevice:=[[1113.09,-377.52,1159.93],[1.87975E-05,6.76229E-06,-1,-4.31763E-06],[-1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\r\n\n
+          \   CONST robtarget MT45Front:=[[584.82,501.91,464.44],[0.000313025,0.114944,-0.993361,-0.00454666],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\r\n\n\n\n\r\n
+          \   PROC Operation()\r\n        !*******************************\r\n        !
+          In diesem Modul wird das GV12 von der Position ueber dem Scanner zum Portal
+          gefahren.\r\n        !*******************************\r\n        MoveL EntryMeasurementDevice,vFast,z10,tool_Parallelgreifer_Standard\\wObj:=wobj0;\r\n
+          \       MoveL DoorHighpoint,vFast,z100,tool_Parallelgreifer_Standard\\WObj:=wobj0;\r\n
+          \       MoveL MT45Front,vFast,z50,tool_Parallelgreifer_Standard\\WObj:=wobj0;\r\n
+          \   ENDPROC\r\n\r\n\nENDMODULE"
+        started: true
+        urls: []
+        xxx:
+          timestamp: '2021-11-04T15:39:28.2338976+01:00'
+          ID: PF_IRB2600.Controller.State
+          description: ''
+          name: State
+          path: PF_IRB2600/Controller/State
+          source: RobotService
+          value: MotorsOn
+          meta:
+            type: ABB.Robotics.Controllers.ControllerState
+            enumeration:
+            - Init
+            - MotorsOff
+            - MotorsOn
+            - GuardStop
+            - EmergencyStop
+            - EmergencyStopReset
+            - SystemFailure
+            - Unknown
+        move: https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/move_Scanner_to_Door.mod
+        vars: "\n    \n  PERS tooldata tool_Parallelgreifer_Standard:=[TRUE,[[0,0,138.9],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];\n\n
+          \ PERS wobjdata wobj_Palette:=[FALSE,TRUE,\"\",[[-701.200489371,303.066515226,114.117418405],[0.006407291,-0.380247924,-0.924858642,-0.002637288]],[[0,0,0],[1,0,0,0]]];\n\n\r\n
+          \   CONST robtarget DoorHighpoint:=[[584.82,501.91,1160],[0,-0.382683434,0.923879532,0],[0,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\r\n\n
+          \   CONST robtarget EntryMeasurementDevice:=[[1113.09,-377.52,1159.93],[1.87975E-05,6.76229E-06,-1,-4.31763E-06],[-1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\r\n\n
+          \   CONST robtarget MT45Front:=[[584.82,501.91,464.44],[0.000313025,0.114944,-0.993361,-0.00454666],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\r\n\n"
+        yyy:
+          timestamp: '2021-11-04T16:01:27.637415+01:00'
+          ID: PF_IRB2600.Controller.StateMachine
+          description: ''
+          name: StateMachine
+          path: PF_IRB2600/Controller/StateMachine
+          source: RobotService
+          value: Finished
+          meta:
+            type: System.String
+            enumeration: 
+        state: MotorsOn
+        x: 0
+        statemachine: Finished
+        y: 0
+        z: 0
+        gripper: Open
+        check_var1: PF_IRB2600.Controller.State
+        check_var2: PF_IRB2600.Controller.StateMachine
+  time:timestamp: '2021-11-04T16:00:49.219+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Scanner to Door
+  id:id: a3
+  cpee:activity: a3
+  cpee:activity_uuid: 6a89d8284a84a763c918eca71d1aa990
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T16:00:49.231+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Door to Portal
+  id:id: a14
+  cpee:activity: a14
+  cpee:activity_uuid: a5e54b8837d47676b92ba23a78bdbef9
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  data:
+    data_send:
+    - name: info
+      value: IRB2600 Door to Portal
+    - name: behavior
+      value: wait_running
+    - name: url
+      value: https://centurio.work/design/server/Keyence Measurement from Pallet.dir/X%20IRB2600%20Execution.xml
+    - name: init
+      value: '{ "includes": "https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod",
+        "move": "https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/move_Door_to_Portal.mod"
+        }'
+  time:timestamp: '2021-11-04T16:00:49.240+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Door to Portal
+  id:id: a14
+  cpee:activity: a14
+  cpee:activity_uuid: a5e54b8837d47676b92ba23a78bdbef9
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: task/instantiation
+  data:
+    data_receiver:
+      CPEE-INSTANCE: '1100'
+      CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1100
+      CPEE-INSTANCE-UUID: 3bb5eb73-2c53-48a1-8806-7ae74cc6f163
+      CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T16:00:49.500+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Door to Portal
+  id:id: a14
+  cpee:activity: a14
+  cpee:activity_uuid: a5e54b8837d47676b92ba23a78bdbef9
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: instance
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1100'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1100
+        CPEE-INSTANCE-UUID: 3bb5eb73-2c53-48a1-8806-7ae74cc6f163
+        CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T16:00:49.507+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Door to Portal
+  id:id: a14
+  cpee:activity: a14
+  cpee:activity_uuid: a5e54b8837d47676b92ba23a78bdbef9
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1100'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1100
+        CPEE-INSTANCE-UUID: 3bb5eb73-2c53-48a1-8806-7ae74cc6f163
+        CPEE-STATE: running
+  time:timestamp: '2021-11-04T16:00:50.603+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Door to Portal
+  id:id: a14
+  cpee:activity: a14
+  cpee:activity_uuid: a5e54b8837d47676b92ba23a78bdbef9
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1100'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1100
+        CPEE-INSTANCE-UUID: 3bb5eb73-2c53-48a1-8806-7ae74cc6f163
+        CPEE-STATE: finished
+        includes: https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod
+        program: "MODULE OperationModule\n\n    \n  PERS tooldata tool_Parallelgreifer_Standard:=[TRUE,[[0,0,138.9],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];\n\n
+          \ PERS wobjdata wobj_Palette:=[FALSE,TRUE,\"\",[[-701.200489371,303.066515226,114.117418405],[0.006407291,-0.380247924,-0.924858642,-0.002637288]],[[0,0,0],[1,0,0,0]]];\n\n\n
+          \ CONST robtarget PortalHighPoint:=[[-13.583341243,746.066869797,1014.459993125],[0.013993802,-0.570055065,0.820624094,0.037649604],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \ CONST robtarget PortalWaypoint:=[[278.53,709.97,800.75],[0.00245312,-0.352995,0.935562,0.0106047],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \ CONST robtarget MT45Front:=[[584.82,501.91,464.44],[0.000313025,0.114944,-0.993361,-0.00454666],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n\n\n\n
+          \ PROC Operation()\n    MoveL MT45Front,vFast,z50,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \   MoveL PortalWaypoint,vFast,z50,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \   MoveL PortalHighPoint,vFast,z50,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \ ENDPROC\n\n\nENDMODULE"
+        started: true
+        urls: []
+        xxx:
+          timestamp: '2021-11-04T15:39:28.2338976+01:00'
+          ID: PF_IRB2600.Controller.State
+          description: ''
+          name: State
+          path: PF_IRB2600/Controller/State
+          source: RobotService
+          value: MotorsOn
+          meta:
+            type: ABB.Robotics.Controllers.ControllerState
+            enumeration:
+            - Init
+            - MotorsOff
+            - MotorsOn
+            - GuardStop
+            - EmergencyStop
+            - EmergencyStopReset
+            - SystemFailure
+            - Unknown
+        move: https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/move_Door_to_Portal.mod
+        vars: "\n    \n  PERS tooldata tool_Parallelgreifer_Standard:=[TRUE,[[0,0,138.9],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];\n\n
+          \ PERS wobjdata wobj_Palette:=[FALSE,TRUE,\"\",[[-701.200489371,303.066515226,114.117418405],[0.006407291,-0.380247924,-0.924858642,-0.002637288]],[[0,0,0],[1,0,0,0]]];\n\n\n
+          \ CONST robtarget PortalHighPoint:=[[-13.583341243,746.066869797,1014.459993125],[0.013993802,-0.570055065,0.820624094,0.037649604],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \ CONST robtarget PortalWaypoint:=[[278.53,709.97,800.75],[0.00245312,-0.352995,0.935562,0.0106047],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \ CONST robtarget MT45Front:=[[584.82,501.91,464.44],[0.000313025,0.114944,-0.993361,-0.00454666],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n"
+        yyy:
+          timestamp: '2021-11-04T16:01:38.432634+01:00'
+          ID: PF_IRB2600.Controller.StateMachine
+          description: ''
+          name: StateMachine
+          path: PF_IRB2600/Controller/StateMachine
+          source: RobotService
+          value: Finished
+          meta:
+            type: System.String
+            enumeration: 
+        state: MotorsOn
+        x: 0
+        statemachine: Finished
+        y: 0
+        z: 0
+        gripper: Open
+        check_var1: PF_IRB2600.Controller.State
+        check_var2: PF_IRB2600.Controller.StateMachine
+  time:timestamp: '2021-11-04T16:00:59.666+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 Door to Portal
+  id:id: a14
+  cpee:activity: a14
+  cpee:activity_uuid: a5e54b8837d47676b92ba23a78bdbef9
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T16:00:59.674+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 To Tray Open
+  id:id: a16
+  cpee:activity: a16
+  cpee:activity_uuid: 2a5d753d227f0c974a17d0cb5a391819
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  data:
+    data_send:
+    - name: behavior
+      value: wait_running
+    - name: url
+      value: https://centurio.work/design/server/Keyence Measurement from Pallet.dir/X%20IRB2600%20Execution.xml
+    - name: init
+      value: '{ "includes": "https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod",
+        "move": "https://centurio.work/artefacts/etm/IRB2600/raw/master/Measure/move_Portal_to_Tray.mod",
+        "x": -85.87, "y": 60.5, "z": 215.0, "gripper": "Open" }'
+    - name: endpoints
+      value: 
+    - name: customization
+      value: 
+  time:timestamp: '2021-11-04T16:00:59.684+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 To Tray Open
+  id:id: a16
+  cpee:activity: a16
+  cpee:activity_uuid: 2a5d753d227f0c974a17d0cb5a391819
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: task/instantiation
+  data:
+    data_receiver:
+      CPEE-INSTANCE: '1101'
+      CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1101
+      CPEE-INSTANCE-UUID: c8a97702-584a-4e2a-bdbd-2c407f14cb4a
+      CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T16:00:59.952+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 To Tray Open
+  id:id: a16
+  cpee:activity: a16
+  cpee:activity_uuid: 2a5d753d227f0c974a17d0cb5a391819
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: instance
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1101'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1101
+        CPEE-INSTANCE-UUID: c8a97702-584a-4e2a-bdbd-2c407f14cb4a
+        CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T16:00:59.960+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 To Tray Open
+  id:id: a16
+  cpee:activity: a16
+  cpee:activity_uuid: 2a5d753d227f0c974a17d0cb5a391819
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1101'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1101
+        CPEE-INSTANCE-UUID: c8a97702-584a-4e2a-bdbd-2c407f14cb4a
+        CPEE-STATE: running
+  time:timestamp: '2021-11-04T16:01:01.122+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 To Tray Open
+  id:id: a16
+  cpee:activity: a16
+  cpee:activity_uuid: 2a5d753d227f0c974a17d0cb5a391819
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1101'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1101
+        CPEE-INSTANCE-UUID: c8a97702-584a-4e2a-bdbd-2c407f14cb4a
+        CPEE-STATE: finished
+        includes: https://centurio.work/artefacts/etm/IRB2600/raw/master/Generic/Measure_General.mod
+        program: "MODULE OperationModule\n\n    \n  PERS tooldata tool_Parallelgreifer_Standard:=[TRUE,[[0,0,138.9],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];\n\n
+          \ PERS wobjdata wobj_Palette:=[FALSE,TRUE,\"\",[[-701.200489371,303.066515226,114.117418405],[0.006407291,-0.380247924,-0.924858642,-0.002637288]],[[0,0,0],[1,0,0,0]]];\n\n\n
+          \   CONST robtarget PortalHighPoint:=[[-13.583341243,746.066869797,1014.459993125],[0.013993802,-0.570055065,0.820624094,0.037649604],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget PortalEntry:=[[-434.055731075,387.84090848,937.564082687],[0.00129595,0.766122039,-0.642494033,-0.016023701],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget PortalHoverPoint:=[[-631.245040038,556.972820959,570.118199049],[0.00217368,0.825005825,-0.56505388,-0.008647398],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget HoverPointinwobjPalette:=[[135.37,228.21,-234.18],[0.814711508,0.002312507,0.003108067,-0.57985356],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n\n
+          \   VAR intnum xpos:=-85.87;\n\n    VAR intnum ypos:=60.5;\n\n    VAR intnum
+          zpos:=215.0;\n\n\n\n\n    PROC Operation()\n        !*******************************\n
+          \       ! Ablage (oder Aufnahme) des GV12 auf (von) der Palette.\n        !*******************************\n
+          \       MoveL PortalHighPoint,vFast,z50,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \       MoveL PortalEntry,vFast,z50,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \       MoveL PortalHoverPoint,vFast,z50,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \       MoveL HoverPointinwobjPalette,vFast,z50,tool_Parallelgreifer_Standard\\WObj:=wobj_Palette;\n\n
+          \       MoveL Offs(HoverPointinwobjPalette,xpos,ypos,zpos-80),vMedium,fine,tool_Parallelgreifer_Standard\\WObj:=wobj_Palette;\n
+          \       MoveL Offs(HoverPointinwobjPalette,xpos,ypos,zpos),vSlow,fine,tool_Parallelgreifer_Standard\\WObj:=wobj_Palette;\n
+          \       OpenGripper;\n        MoveL Offs(HoverPointinwobjPalette,xpos,ypos,zpos-80),vSlow,fine,tool_Parallelgreifer_Standard\\WObj:=wobj_Palette;\n\n
+          \       MoveL HoverPointinwobjPalette,vMedium,z50,tool_Parallelgreifer_Standard\\WObj:=wobj_Palette;\n
+          \       MoveL PortalHoverPoint,vMedium,z50,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \       MoveL PortalEntry,vFast,z50,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \       MoveL PortalHighPoint,vFast,z50,tool_Parallelgreifer_Standard\\WObj:=wobj0;\n
+          \   ENDPROC\n\n\nENDMODULE"
+        started: true
+        urls: []
+        xxx:
+          timestamp: '2021-11-04T15:39:28.2338976+01:00'
+          ID: PF_IRB2600.Controller.State
+          description: ''
+          name: State
+          path: PF_IRB2600/Controller/State
+          source: RobotService
+          value: MotorsOn
+          meta:
+            type: ABB.Robotics.Controllers.ControllerState
+            enumeration:
+            - Init
+            - MotorsOff
+            - MotorsOn
+            - GuardStop
+            - EmergencyStop
+            - EmergencyStopReset
+            - SystemFailure
+            - Unknown
+        move: https://centurio.work/artefacts/etm/IRB2600/raw/master/Measure/move_Portal_to_Tray.mod
+        vars: "\n    \n  PERS tooldata tool_Parallelgreifer_Standard:=[TRUE,[[0,0,138.9],[1,0,0,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];\n\n
+          \ PERS wobjdata wobj_Palette:=[FALSE,TRUE,\"\",[[-701.200489371,303.066515226,114.117418405],[0.006407291,-0.380247924,-0.924858642,-0.002637288]],[[0,0,0],[1,0,0,0]]];\n\n\n
+          \   CONST robtarget PortalHighPoint:=[[-13.583341243,746.066869797,1014.459993125],[0.013993802,-0.570055065,0.820624094,0.037649604],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget PortalEntry:=[[-434.055731075,387.84090848,937.564082687],[0.00129595,0.766122039,-0.642494033,-0.016023701],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget PortalHoverPoint:=[[-631.245040038,556.972820959,570.118199049],[0.00217368,0.825005825,-0.56505388,-0.008647398],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n
+          \   CONST robtarget HoverPointinwobjPalette:=[[135.37,228.21,-234.18],[0.814711508,0.002312507,0.003108067,-0.57985356],[1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];\n\n\n
+          \   VAR intnum xpos:=-85.87;\n\n    VAR intnum ypos:=60.5;\n\n    VAR intnum
+          zpos:=215.0;\n\n"
+        yyy:
+          timestamp: '2021-11-04T16:02:01.9574753+01:00'
+          ID: PF_IRB2600.Controller.StateMachine
+          description: ''
+          name: StateMachine
+          path: PF_IRB2600/Controller/StateMachine
+          source: RobotService
+          value: Finished
+          meta:
+            type: System.String
+            enumeration: 
+        state: MotorsOn
+        x: -85.87
+        statemachine: Finished
+        y: 60.5
+        z: 215.0
+        gripper: Open
+        check_var1: PF_IRB2600.Controller.State
+        check_var2: PF_IRB2600.Controller.StateMachine
+  time:timestamp: '2021-11-04T16:01:22.863+01:00'
+---
+event:
+  concept:instance: 1094
+  concept:name: IRB2600 To Tray Open
+  id:id: a16
+  cpee:activity: a16
+  cpee:activity_uuid: 2a5d753d227f0c974a17d0cb5a391819
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T16:01:22.874+01:00'
+---
+event:
+  concept:instance: 1094
+  id:id: external
+  cpee:activity: external
+  cpee:instance: 75a9be5d-e1a1-45c4-be44-7fdec0a7762b
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: state/change
+  cpee:state: finished
+  time:timestamp: '2021-11-04T16:01:23.095+01:00'

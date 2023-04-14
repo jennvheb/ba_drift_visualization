@@ -1,0 +1,469 @@
+---
+log:
+  extension:
+    time: http://www.xes-standard.org/time.xesext
+    concept: http://www.xes-standard.org/concept.xesext
+    organisational: http://www.xes-standard.org/org.xesext
+    lifecycle: http://www.xes-standard.org/lifecycle.xesext
+    cpee: http://cpee.org/cpee.xesext
+  global:
+    trace:
+      concept:name: __INVALID__
+      cpee:name: __INVALID__
+    event:
+      concept:instance: -1
+      concept:name: __INVALID__
+      concept:endpoint: ''
+      id:id: ''
+      cpee:uuid: ''
+      lifecycle:transition: complete
+      cpee:lifecycle:transition: activity/calling
+      time:timestamp: ''
+  classifier:
+    Data: data_send data_received data_changed data_values
+    Data_Received: data_receiver
+    Data_Send: data_send
+    Data_Changed: data_changer
+    Data_Values: data_values
+  trace:
+    concept:name: 1572
+    cpee:name: Production Vx
+    cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+---
+event:
+  concept:instance: 1572
+  id:id: external
+  cpee:activity: external
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: dataelements/change
+  data:
+    data_changer:
+    - machine
+    - program
+    - program_path
+    - trigger
+    - trigger_start
+    - trigger_pause
+    - trigger_end
+    - event_batch
+    - label
+    data_values:
+      machine: keyence
+      program: gfrast1
+      program_path: program
+      trigger: state
+      trigger_start: active
+      trigger_pause: notpossible
+      trigger_end: inactive
+      event_batch: '333'
+      label: ''
+  time:timestamp: '2021-11-04T18:08:15.651+01:00'
+---
+event:
+  concept:instance: 1572
+  id:id: external
+  cpee:activity: external
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: endpoints/change
+  data:
+    data_changer:
+    - start_url
+    - at
+    data_values:
+      start_url: https://centurio.work/flow/start/url/
+      at: https-get://centurio.work/data/dpnorth/at/
+  time:timestamp: '2021-11-04T18:08:15.660+01:00'
+---
+event:
+  concept:instance: 1572
+  id:id: external
+  cpee:activity: external
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: attributes/change
+  data:
+    data_changer:
+    - info
+    - modeltype
+    - theme
+    - customer
+    - status
+    - creator
+    - author
+    - design_stage
+    - design_dir
+    data_values:
+      info: Production Vx
+      modeltype: CPEE
+      theme: default
+      customer: pilotfabrik
+      status: development
+      creator: Juergen Mangler
+      author: Juergen Mangler
+      design_stage: development
+      design_dir: Keyence Measurement from Pallet.dir
+  time:timestamp: '2021-11-04T18:08:15.668+01:00'
+---
+event:
+  concept:instance: 1572
+  id:id: external
+  cpee:activity: external
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: description/change
+  cpee:description: |
+    <?xml version="1.0"?>
+    <description xmlns="http://cpee.org/ns/description/1.0">
+      <loop mode="pre_test" condition="data.finished.nil?">
+        <choose mode="exclusive">
+          <alternative condition="data.queue.to_s.empty?">
+            <call id="a4" endpoint="at">
+              <parameters>
+                <label>Detection Machining</label>
+                <method>:get</method>
+                <arguments>
+                  <machine>!data.machine</machine>
+                  <program_path>!data.program_path</program_path>
+                  <program_value>!data.program</program_value>
+                  <trigger_path>!data.trigger</trigger_path>
+                  <trigger_start_value>!data.trigger_start</trigger_start_value>
+                  <trigger_pause_value>!data.trigger_pause</trigger_pause_value>
+                  <trigger_end_value>!data.trigger_end</trigger_end_value>
+                  <target>!data.machine</target>
+                  <event_batch>!data.event_batch</event_batch>
+                  <refinement>no</refinement>
+                </arguments>
+                <sensors/>
+              </parameters>
+              <_timing>
+                <_timing_min/>
+                <_timing_max/>
+                <_timing_avg/>
+              </_timing>
+              <_notes>
+                <_notes_general/>
+                <_notes_output/>
+                <_attachments/>
+              </_notes>
+              <code>
+                <finalize output="result">data.queue = result.empty? ? nil : result</finalize>
+                <update output="result"/>
+              </code>
+            </call>
+          </alternative>
+          <otherwise>
+            <call id="a1" endpoint="start_url">
+              <parameters>
+                <label>Machining</label>
+                <method>:post</method>
+                <arguments>
+                  <behavior>wait_running</behavior>
+                  <url>https://centurio.work/design/server/Keyence%20Measurement%20from%20Pallet.dir/Machining%20V2.xml</url>
+                  <init>
+                    <queue>!data.queue</queue>
+                    <qr>!data.qr</qr>
+                  </init>
+                  <endpoints/>
+                  <customization/>
+                </arguments>
+                <_context_data_analysis>
+                  <probes/>
+                  <ips/>
+                </_context_data_analysis>
+                <report>
+                  <url/>
+                </report>
+              </parameters>
+              <code>
+                <prepare/>
+                <finalize output="result">data.finished = 'yes'
+                        data.queue = nil</finalize>
+                <update output="result"/>
+                <rescue output="result"/>
+              </code>
+              <annotations>
+                <_timing>
+                  <_timing_weight/>
+                  <_timing_avg/>
+                  <explanations/>
+                </_timing>
+                <_notes>
+                  <_notes_general/>
+                </_notes>
+              </annotations>
+              <input/>
+              <output/>
+              <implementation>
+                <description/>
+              </implementation>
+              <code>
+                <description/>
+              </code>
+            </call>
+          </otherwise>
+        </choose>
+      </loop>
+    </description>
+  time:timestamp: '2021-11-04T18:08:15.676+01:00'
+---
+event:
+  concept:instance: 1572
+  id:id: external
+  cpee:activity: external
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: dataelements/change
+  data:
+    data_changer:
+    - machine
+    - program
+    - program_path
+    - trigger
+    - trigger_start
+    - trigger_pause
+    - trigger_end
+    - event_batch
+    - label
+    - qr
+    data_values:
+      machine: keyence
+      program: gfrast1
+      program_path: program
+      trigger: state
+      trigger_start: active
+      trigger_pause: notpossible
+      trigger_end: inactive
+      event_batch: '333'
+      label: Natty Keyence Measuring
+      qr: "*268MFA466*TZHZE 045"
+  time:timestamp: '2021-11-04T18:08:15.896+01:00'
+---
+event:
+  concept:instance: 1572
+  id:id: external
+  cpee:activity: external
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: state/change
+  cpee:state: running
+  time:timestamp: '2021-11-04T18:08:16.972+01:00'
+---
+event:
+  concept:instance: 1572
+  concept:name: Detection Machining
+  id:id: a4
+  cpee:activity: a4
+  cpee:activity_uuid: cd98f7b7c0c0c61a4ddb34e8919c24c3
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  data:
+    data_send:
+    - name: machine
+      value: keyence
+    - name: program_path
+      value: program
+    - name: program_value
+      value: gfrast1
+    - name: trigger_path
+      value: state
+    - name: trigger_start_value
+      value: active
+    - name: trigger_pause_value
+      value: notpossible
+    - name: trigger_end_value
+      value: inactive
+    - name: target
+      value: keyence
+    - name: event_batch
+      value: 333
+    - name: refinement
+      value: 'no'
+  time:timestamp: '2021-11-04T18:08:16.980+01:00'
+---
+event:
+  concept:instance: 1572
+  concept:name: Detection Machining
+  id:id: a4
+  cpee:activity: a4
+  cpee:activity_uuid: cd98f7b7c0c0c61a4ddb34e8919c24c3
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: text
+      mimetype: text/plain
+      data: keyence/1636045779.3507965
+  time:timestamp: '2021-11-04T18:09:39.378+01:00'
+---
+event:
+  concept:instance: 1572
+  concept:name: Detection Machining
+  id:id: a4
+  cpee:activity: a4
+  cpee:activity_uuid: cd98f7b7c0c0c61a4ddb34e8919c24c3
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: dataelements/change
+  data:
+    data_changer:
+    - queue
+    data_values:
+      queue: keyence/1636045779.3507965
+  time:timestamp: '2021-11-04T18:09:39.391+01:00'
+---
+event:
+  concept:instance: 1572
+  concept:name: Detection Machining
+  id:id: a4
+  cpee:activity: a4
+  cpee:activity_uuid: cd98f7b7c0c0c61a4ddb34e8919c24c3
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T18:09:39.410+01:00'
+---
+event:
+  concept:instance: 1572
+  concept:name: Machining
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 7448813e74f7408a43d2e5b27dd13794
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: start
+  cpee:lifecycle:transition: activity/calling
+  data:
+    data_send:
+    - name: behavior
+      value: wait_running
+    - name: url
+      value: https://centurio.work/design/server/Keyence%20Measurement%20from%20Pallet.dir/Machining%20V2.xml
+    - name: init
+      value: '{ "queue": "keyence/1636045779.3507965", "qr": "*268MFA466*TZHZE 045"
+        }'
+    - name: endpoints
+      value: 
+    - name: customization
+      value: 
+  time:timestamp: '2021-11-04T18:09:39.419+01:00'
+---
+event:
+  concept:instance: 1572
+  concept:name: Machining
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 7448813e74f7408a43d2e5b27dd13794
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: task/instantiation
+  data:
+    data_receiver:
+      CPEE-INSTANCE: '1578'
+      CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1578
+      CPEE-INSTANCE-UUID: 77c6820a-1dac-45b0-9bfb-5b2f2e3e6fde
+      CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T18:09:39.621+01:00'
+---
+event:
+  concept:instance: 1572
+  concept:name: Machining
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 7448813e74f7408a43d2e5b27dd13794
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: instance
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1578'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1578
+        CPEE-INSTANCE-UUID: 77c6820a-1dac-45b0-9bfb-5b2f2e3e6fde
+        CPEE-BEHAVIOR: wait_running
+  time:timestamp: '2021-11-04T18:09:39.628+01:00'
+---
+event:
+  concept:instance: 1572
+  concept:name: Machining
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 7448813e74f7408a43d2e5b27dd13794
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1578'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1578
+        CPEE-INSTANCE-UUID: 77c6820a-1dac-45b0-9bfb-5b2f2e3e6fde
+        CPEE-STATE: running
+  time:timestamp: '2021-11-04T18:09:40.644+01:00'
+---
+event:
+  concept:instance: 1572
+  concept:name: Machining
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 7448813e74f7408a43d2e5b27dd13794
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: activity/receiving
+  data:
+    data_receiver:
+    - name: dataelements
+      mimetype: application/json
+      data:
+        CPEE-INSTANCE: '1578'
+        CPEE-INSTANCE-URL: https://centurio.work/flow/engine/1578
+        CPEE-INSTANCE-UUID: 77c6820a-1dac-45b0-9bfb-5b2f2e3e6fde
+        CPEE-STATE: finished
+        queue: keyence/1636045779.3507965
+        qr: "*268MFA466*TZHZE 045"
+  time:timestamp: '2021-11-04T18:09:54.327+01:00'
+---
+event:
+  concept:instance: 1572
+  concept:name: Machining
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 7448813e74f7408a43d2e5b27dd13794
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: dataelements/change
+  data:
+    data_changer:
+    - finished
+    - queue
+    data_values:
+      finished: 'yes'
+      queue: 
+  time:timestamp: '2021-11-04T18:09:54.334+01:00'
+---
+event:
+  concept:instance: 1572
+  concept:name: Machining
+  id:id: a1
+  cpee:activity: a1
+  cpee:activity_uuid: 7448813e74f7408a43d2e5b27dd13794
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: complete
+  cpee:lifecycle:transition: activity/done
+  time:timestamp: '2021-11-04T18:09:54.342+01:00'
+---
+event:
+  concept:instance: 1572
+  id:id: external
+  cpee:activity: external
+  cpee:instance: cfb85fcd-d5ca-4e36-9629-9e7f538f0362
+  lifecycle:transition: unknown
+  cpee:lifecycle:transition: state/change
+  cpee:state: finished
+  time:timestamp: '2021-11-04T18:09:54.588+01:00'
