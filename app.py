@@ -165,7 +165,7 @@ app.layout = html.Div([
         ],
         style={'width': '50%', 'display': 'inline-block'}),
         html.Div([
-            html.P(children='Average time sequences', style = {'font-weight': 'bold','textAlign': 'left', 'margin-left':'13px','margin-top':'10px','margin-bottom': '-3px'}),
+            html.P(children='Average time series', style = {'font-weight': 'bold','textAlign': 'left', 'margin-left':'13px','margin-top':'10px','margin-bottom': '-3px'}),
             dcc.Graph( 
                 id='line-graph4',
                 figure=fig2, style={'width': '60vh', 'height': '95vh'}
